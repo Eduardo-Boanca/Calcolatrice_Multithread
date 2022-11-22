@@ -46,13 +46,10 @@ public class Client {
                     try {
                         String command = input.readLine();
                         if (inputCheck(command)) {
-
+                            error = false;
+                        } else {
+                            System.out.println("ERROR 500: Valore non valido");
                         }
-                        // if(inputCheck())
-                        // error = false;
-                        // } else {
-                        // System.out.println("ERROR 500: Valore non valido");
-                        // }
                     } catch (Exception e) {
                         System.out.println("ERROR 500: Valore non valido");
                     }
@@ -60,10 +57,10 @@ public class Client {
 
                 switch (scelta) {
                     case "+":
-
+                        System.out.println("sono un piu");
                         break;
                     case "-":
-
+                        System.out.println("sono un meno");
                         break;
                     case "*":
 
@@ -90,10 +87,12 @@ public class Client {
                             socket.close();
                         }
                         break;
+                    default:
+                        System.out.println("HAI MESSO IL COMANDO SBAGLIATO");
+                        break;
                 }
             }
             scanner.close();
-            socket.close();
         } catch (IOException e) {
             System.out.println("Errore: " + e);
         }
